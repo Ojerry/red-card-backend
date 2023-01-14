@@ -87,14 +87,14 @@ const issueCard = async (req, res) => {
     }
     console.log(card)
     console.log(personnelNo)
-    // User.updateOne({personnelNo: personnelNo}, {$push: {cards: card}},
-    // function (err) {
-    //     if (!err) {
-    //         res.status(201).json({success :"Succesfully updated Cards"})
-    //     } else {
-    //         console.log(err)
-    //     }
-    // })
+    User.updateOne({personnelNo: personnelNo}, {$push: {cards: card}},
+    function (err) {
+        if (!err) {
+            res.status(201).json({success :"Succesfully updated Cards"})
+        } else {
+            console.log(err)
+        }
+    })
 }
 
 const removeCard = async (req, res) => {
