@@ -31,6 +31,10 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use("/api/file", upload);
 app.use('/api',userRoutes)
 
+app.get("/",(req,res) => {
+    res.send("Welcome to REDCARD")
+})
+
 // media routes
 app.get("/file/:filename", async (req, res) => {
     try {
