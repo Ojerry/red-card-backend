@@ -89,16 +89,16 @@ const issueCard = async (req, res) => {
         chiefsignFileName: req.files["chiefsign"][0]?.filename,
         examOffSignFileName: req.files["examOffsign"][0]?.filename
     }
-    console.log(card)
-    console.log(personnelNo)
-    // User.updateOne({personnelNo: personnelNo}, {$push: {cards: card}},
-    // function (err) {
-    //     if (!err) {
-    //         res.status(201).json({success :"Succesfully updated Cards"})
-    //     } else {
-    //         console.log(err)
-    //     }
-    // })
+    console.log("card: ", card)
+    console.log("personnelNo: ", personnelNo)
+    User.updateOne({personnelNo: personnelNo}, {$push: {cards: card}},
+    function (err) {
+        if (!err) {
+            res.status(201).json({success :"Succesfully updated Cards"})
+        } else {
+            console.log(err)
+        }
+    })
 }
 
 const removeCard = async (req, res) => {
