@@ -76,19 +76,21 @@ const login = async (req, res) => {
 //     })
 // }
 const issueCard = async (req, res) => {
-    console.log(req.body)
-    console.log(req.files)
-    // const {personnelNo} = req.body
-    // const card = {
-    //     offense: req.body.offense,
-    //     points: req.body.points,
-    //     studentRegNo: req.body.studentRegNo,
-    //     spsignFileName: req.files["spsign"][0].filename,
-    //     chiefsignFileName: req.files["chiefsign"][0]?.filename,
-    //     examOffSign: req.files["examOffsign"][0]?.filename
-    // }
-    // console.log(card)
-    // console.log(personnelNo)
+    // console.log(req.body)
+    // console.log(req.files)
+    const {personnelNo} = req.body
+    const card = {
+        offense: req.body.offense,
+        points: req.body.points,
+        studentRegNo: req.body.studentRegNo,
+        chiefSpNo: req.body.chiefSpNo,
+        examOfficerSpNo: req.body.examOfficerSpNo,
+        spsignFileName: req.files["spsign"][0].filename,
+        chiefsignFileName: req.files["chiefsign"][0]?.filename,
+        examOffSignFileName: req.files["examOffsign"][0]?.filename
+    }
+    console.log(card)
+    console.log(personnelNo)
     // User.updateOne({personnelNo: personnelNo}, {$push: {cards: card}},
     // function (err) {
     //     if (!err) {
