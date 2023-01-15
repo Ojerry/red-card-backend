@@ -112,9 +112,30 @@ const removeCard = async (req, res) => {
         }
     })
 }
+
+const saveImage = async (req, res) => {
+    // console.log(req.file)
+    // console.log(req.body)
+    const personnelNo = req.body.spNo
+    const image = {
+        filename: req.file.filename,
+        name: req.body.name
+    }
+    User.updateOne({personnelNo: personnelNo}, {$push: {images: image}},
+        function (err) {
+            if (!err) {
+                res.status(201).json({success :"Succesfully updated Image"})
+            } else {
+                console.log(err)
+            }
+        })
+}
+
+
 module.exports = {
     register,
     login,
     issueCard,
-    removeCard
+    removeCard,
+    saveImage
   }
