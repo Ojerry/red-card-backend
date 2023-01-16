@@ -114,8 +114,8 @@ const removeCard = async (req, res) => {
 }
 
 const saveImage = async (req, res) => {
-    // console.log(req.file)
-    // console.log(req.body)
+    console.log(req.file)
+    console.log(req.body)
     const personnelNo = req.body.spNo
     const image = {
         filename: req.file.filename,
